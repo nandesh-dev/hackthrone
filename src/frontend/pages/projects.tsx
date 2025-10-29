@@ -42,7 +42,10 @@ export function ProjectsPage() {
           </TableHeader>
           <TableBody>
             {projectQuery.data?.map((project) => (
-              <TableRow key={project.title}>
+              <TableRow
+                key={project.title}
+                onClick={() => navigate("/project")}
+              >
                 <TableCell className="font-medium">{project.title}</TableCell>
                 <TableCell>
                   {project.keywords.map((keyword) => {
