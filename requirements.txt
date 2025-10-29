@@ -1,3 +1,6 @@
 fastapi
 uvicorn
 pydantic-settings
+bcrypt
+motor
+email-validator
