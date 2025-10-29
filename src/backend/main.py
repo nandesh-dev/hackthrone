@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
@@ -5,7 +6,16 @@ from starlette.middleware.sessions import SessionMiddleware
 from .config import env
 from .routes import router
 
-app = FastAPI()
+from .utils.database_handler import open_db, close_db
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan context manager for FastAPI app."""
+    await open_db()
+    yield
+    await close_db()
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
