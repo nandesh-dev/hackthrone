@@ -1,12 +1,6 @@
 import * as React from "react";
-import {
-  IconChartBar,
-  IconFolder,
-  IconHome,
-  IconUsers,
-} from "@tabler/icons-react";
+import { IconFolder, IconHome, IconUsers } from "@tabler/icons-react";
 
-import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -19,14 +13,10 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useNavigate } from "react-router";
-
-const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-};
+import { AvatarFallback } from "@radix-ui/react-avatar";
+import { Avatar } from "./ui/avatar";
+import { useQuery } from "@tanstack/react-query";
+import { getUser } from "@/actions/user";
 
 const NAV_ITEMS = [
   {
@@ -41,19 +31,15 @@ const NAV_ITEMS = [
   },
   {
     title: "Socials",
-    url: "/",
+    url: "/socials",
     icon: IconUsers,
-  },
-  {
-    title: "Analytics",
-    url: "/analytics",
-    icon: IconChartBar,
   },
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navigate = useNavigate();
 
+  const userQuery = useQuery({ queryFn: getUser, queryKey: [] });
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -87,7 +73,23 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <SidebarMenu>
+          <SidebarMenuItem className="flex flex-row px-2">
+            <Avatar className="h-8 w-8 rounded-lg grayscale">
+              <AvatarFallback className="rounded-lg">
+                {(userQuery.data?.name || "-")[0]}
+              </AvatarFallback>
+            </Avatar>
+            <div className="grid flex-1 text-left text-sm leading-tight">
+              <span className="truncate font-medium">
+                {userQuery.data?.name || "- - -"}
+              </span>
+              <span className="text-muted-foreground truncate text-xs">
+                {userQuery.data?.email || "- - -"}
+              </span>
+            </div>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );

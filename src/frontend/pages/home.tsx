@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout";
 
-export function DashboardPage() {
+export function HomePage() {
   return <Layout>Hi</Layout>;
 }
