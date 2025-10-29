@@ -61,10 +61,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroupContent className="flex flex-col gap-2">
             <SidebarMenu>
               {NAV_ITEMS.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem
+                  key={item.title}
+                  onClick={() => navigate(item.url)}
+                >
                   <SidebarMenuButton tooltip={item.title}>
                     {item.icon && <item.icon />}
-                    <a onClick={() => navigate(item.url)}>{item.title}</a>
+                    <a>{item.title}</a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
