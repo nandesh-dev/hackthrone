@@ -2,7 +2,7 @@ import { delay } from "@/lib/utils";
 
 export async function getCollaborationRecommendation() {
   if (import.meta.env.VITE_MOCK_MODE) {
-    await delay(100);
+    await delay(2000);
 
     return [
       {

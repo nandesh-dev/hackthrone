@@ -2,6 +2,7 @@ import { getProjects } from "@/actions/projects";
 import { Layout } from "@/components/layout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -12,8 +13,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router";
 
 export function ProjectsPage() {
+  const navigate = useNavigate();
+
   const projectQuery = useQuery({
     queryFn: getProjects,
     queryKey: ["getProjects"],
@@ -22,6 +26,11 @@ export function ProjectsPage() {
   return (
     <Layout>
       <div className="flex flex-col gap-8 px-8">
+        <div className="flex flex-col items-end">
+          <Button onClick={() => navigate("/project/create")}>
+            Create Project
+          </Button>
+        </div>
         <Table>
           <TableHeader>
             <TableRow>

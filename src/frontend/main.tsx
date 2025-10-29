@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HomePage } from "./pages/home.tsx";
 import { SocialsPage } from "./pages/socials.tsx";
 import { ProjectsPage } from "./pages/projects.tsx";
+import { CreateProjectPage } from "./pages/create_project.tsx";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<HomePage />} />
           <Route path="/socials" element={<SocialsPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/project/create" element={<CreateProjectPage />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>

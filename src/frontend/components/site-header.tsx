@@ -17,6 +17,9 @@ export function SiteHeader() {
     case "/projects":
       title = "Projects";
       break;
+    case "/project/create":
+      title = "Create Project";
+      break;
   }
 
   return (

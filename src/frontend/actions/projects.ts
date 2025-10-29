@@ -218,3 +218,10 @@ export async function getProjects() {
 
   return [];
 }
+
+export async function createProject() {
+  if (import.meta.env.VITE_MOCK_MODE) {
+    await delay(500);
+    return;
+  }
+}
