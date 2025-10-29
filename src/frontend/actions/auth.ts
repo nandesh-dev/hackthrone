@@ -13,6 +13,7 @@ export async function signupUser({
 }) {
   if (import.meta.env.VITE_MOCK_MODE) {
     await delay(500);
+    document.cookie = "session=true";
     return;
   }
 
@@ -41,6 +42,7 @@ export async function loginUser({
 }) {
   if (import.meta.env.VITE_MOCK_MODE) {
     await delay(500);
+    document.cookie = "session=true";
     return;
   }
 
@@ -56,4 +58,14 @@ export async function loginUser({
   if (res.status !== 201) {
     throw Error("Failed to login");
   }
+}
+
+export function checkLogin() {
+  if (import.meta.env.VITE_MOCK_MODE) {
+    return document.cookie
+      .split(";")
+      .some((cookie) => cookie.trim().startsWith("session" + "="));
+  }
+
+  return false;
 }

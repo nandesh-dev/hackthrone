@@ -1,9 +1,19 @@
+import { checkLogin } from "@/actions/auth";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
+import { useNavigate } from "react-router";
 
 export function Layout({ children }: { children: ReactNode }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!checkLogin()) {
+      navigate("/signup");
+    }
+  }, []);
+
   return (
     <SidebarProvider
       style={

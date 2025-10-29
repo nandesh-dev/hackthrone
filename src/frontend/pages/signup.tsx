@@ -42,7 +42,7 @@ export default function SignupPage() {
   const signupMutation = useMutation({
     mutationFn: signupUser,
     onSuccess: () => {
-      setSignupCompleted(true);
+      navigate("/");
     },
   });
 
