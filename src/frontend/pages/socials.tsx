@@ -16,7 +16,7 @@ export function SocialsPage() {
     <Layout>
       <div className="grid grid-cols-4 gap-8 px-8">
         {collaborationRecommendationQuery.data?.map(
-          ({ name, email, profile_photo, bio, keywords }) => {
+          ({ name, profile_photo, bio, keywords }) => {
             return (
               <Card className="h-[32rem]">
                 <CardContent className="flex flex-col gap-4 relative h-full">
