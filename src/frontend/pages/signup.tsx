@@ -178,7 +178,7 @@ export default function SignupPage() {
                     </div>
                     <Input
                       id="password"
-                      type="current-password"
+                      type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
@@ -192,7 +192,7 @@ export default function SignupPage() {
                     </div>
                     <Input
                       id="confirm-password"
-                      type="new-password"
+                      type="password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       required
