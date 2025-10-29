@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Field,
   FieldGroup,
@@ -57,7 +51,7 @@ export default function SignupPage() {
     setSignupCompleted(true);
   };
 
-  const handleSurveySubmit = (e: any) => {
+  const handleSurveySubmit = () => {
     const surveys = surveyRenponses.map((response, index) => {
       return {
         question: SURVEY_QUESTIONS[index],

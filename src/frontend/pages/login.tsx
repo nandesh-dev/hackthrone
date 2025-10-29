@@ -20,7 +20,6 @@ export default function LoginPage() {
 
   const loginMutation = useMutation({
     mutationFn: loginUser,
-    onSuccess: (data) => {},
   });
 
   const handleSubmit = (e: any) => {

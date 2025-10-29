@@ -39,7 +39,9 @@ export function HomePage() {
       <div className="flex flex-col gap-8 px-8">
         <SectionCards data={userStatisticsQuery.data} />
         {userStatisticsQuery.isSuccess && (
-          <ChartAreaInteractive data={userStatisticsQuery.data?.history} />
+          <ChartAreaInteractive
+            data={userStatisticsQuery.data?.history || []}
+          />
         )}
       </div>
     </Layout>
