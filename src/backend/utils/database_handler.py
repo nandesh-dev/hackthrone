@@ -109,8 +109,9 @@ async def create_user(user_data: dict) -> UserModel:
         user_data["hashed_password"] = hash_password(user_data["password"])
         del user_data["password"]
         result = await users_db.user_details.insert_one(user_data)
-        user_data["_id"] = result.inserted_id
+        user_data["_id"] = str(result.inserted_id)
         user_data = switch_id_to_pydantic(user_data)
+        del user_data["hashed_password"]
         return UserModel(**user_data)
     except errors.DuplicateKeyError as e:
         raise ValueError from e
