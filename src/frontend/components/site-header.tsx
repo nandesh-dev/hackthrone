@@ -1,3 +1,4 @@
+import { logoutUser } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -31,7 +32,7 @@ export function SiteHeader() {
           className="mx-2 data-[orientation=vertical]:h-4"
         />
         <h1 className="text-base font-medium">{title}</h1>
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex flex-row items-center gap-2">
           <Button variant="ghost" asChild size="sm" className="hidden sm:flex">
             <a
               href="https://github.com/nandesh-dev/hackthrone"
@@ -41,6 +42,14 @@ export function SiteHeader() {
             >
               Support
             </a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="hidden sm:flex"
+            onClick={logoutUser}
+          >
+            Log out
           </Button>
         </div>
       </div>

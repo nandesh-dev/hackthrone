@@ -20,6 +20,9 @@ export default function LoginPage() {
 
   const loginMutation = useMutation({
     mutationFn: loginUser,
+    onSuccess: () => {
+      navigate("/");
+    },
   });
 
   const handleSubmit = (e: any) => {

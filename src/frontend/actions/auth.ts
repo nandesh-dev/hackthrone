@@ -42,6 +42,10 @@ export async function loginUser({
 }) {
   if (import.meta.env.VITE_MOCK_MODE) {
     await delay(500);
+
+    if (email !== "nandesh.s2025@vitstudent.ac.in" || password !== "1234") {
+      throw Error("Invalid login");
+    }
     document.cookie = "session=true";
     return;
   }
@@ -68,4 +72,9 @@ export function checkLogin() {
   }
 
   return false;
+}
+
+export function logoutUser() {
+  document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+  document.location.reload();
 }
