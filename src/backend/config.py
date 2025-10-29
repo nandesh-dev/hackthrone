@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     HOST_PORT: int = Field(default=8080)
     MONGODB_CONNECTION_STR: str = Field()
     AUTH_SECRET: str = Field(default=token_urlsafe(64))
-    API_URL: str = Field(default="http://127.0.0.1:8000/api")
+    VITE_API_URL: str = Field(default="http://127.0.0.1:8000/api")
+    
     model_config = SettingsConfigDict(env_file=".env")
 
 
