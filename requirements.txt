@@ -4,3 +4,4 @@ pydantic-settings
 bcrypt
 motor
 email-validator
+itsdangerous
