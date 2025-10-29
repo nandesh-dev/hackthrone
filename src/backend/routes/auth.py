@@ -40,6 +40,7 @@ async def signup(
     )
     try:
         op = await create_user(payload.model_dump(exclude={"survey_data"}))
+        print(op)
         request.session["user_id"] = str(op.id)
         return JSONResponse(
             status_code=status.HTTP_201_CREATED,
