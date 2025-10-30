@@ -79,7 +79,7 @@ export function ProjectPage() {
           </h3>
           <p className="mb-4">{getProjectQuery.data?.description || "- - -"}</p>
           <h3 className="scroll-m-20 text-xl font-medium tracking-tight mb-4">
-            Colaborators
+            Collaborators
           </h3>
           <div className="flex flex-row flex-wrap gap-4">
             {getProjectQuery.data?.collaborators.map(

@@ -77,7 +77,7 @@ export function CreateProjectPage() {
       </div>
       {projectInfoSubmitted && (
         <h4 className="scroll-m-20 text-xl font-medium tracking-tight ml-8">
-          Invite Colaborators
+          Invite Collaborators
         </h4>
       )}
       <div className="grid grid-cols-4 gap-8 px-8">

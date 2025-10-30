@@ -36,7 +36,7 @@ export function ProjectsPage() {
             <TableRow>
               <TableHead className="w-[100px]">Title</TableHead>
               <TableHead>Keywords</TableHead>
-              <TableHead>Colaborators</TableHead>
+              <TableHead>Collaborators</TableHead>
               <TableHead className="text-right">Credits</TableHead>
             </TableRow>
           </TableHeader>
